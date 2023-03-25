@@ -1,30 +1,56 @@
-import { useState, useEffect } from "react";
-
-
+ import React, {useState} from "react";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import Header from "./Header";
 import TodosContainer from "./TodosContainer";
-import Login from "./Login";
+import LoginForm from "./Login";
+import LoginButton from "./Loginbutton";
+
 function App() {
-  const [users, setUsers] = useState(null);
+  const [showLoginForm, setShowLoginForm] = useState(false);
 
-  useEffect(() => {
-    fetch("http://localhost:3000")
-    .then((response) => {
-      if (response.ok) {
-        response.json().then((users) =>setUsers(users));
-      }
-    });
-  }, []);
+  const handleLoginButtonClick = () => {
+    setShowLoginForm(true);
+  };
+  // const [users, setUsers] = useState(null);
 
+  // function handleLogin(users) {
+  //   setUsers(users);
+  // }
 
-  return(
-     <div className="todo">
-      <div className="header">
-        <h1><center>todos</center></h1>
+  // const handleLogout = () => {
+  //   setUsers(null);
+  // };
+
+  return (
+    // <Router>
+    //   <div className="App">
+    //     <Header user={users} onLogout={handleLogout} />
+    //     <Routes>
+    //       <Route path="/login">
+    //         <Login onLogin={handleLogin} />
+    //       </Route>
+    //       <Route path="/">
+    //         <h1>
+    //           <center>todos</center>
+    //         </h1>
+    //         <TodosContainer />
+    //       </Route>
+    //     </Routes>
+    //   </div>
+    // </Router>
+    <div className="App">
+      <div>
+      <h1><center>todos</center></h1>
+      {showLoginForm ? (
+        <LoginForm/>
+      ) : (
+        <LoginButton onClick={handleLoginButtonClick}/>
+      )}
       </div>
-      <Login/>
-      <TodosContainer />
-
-     </div>
+      <div>
+        <TodosContainer />
+      </div>
+    </div>
   );
 }
 

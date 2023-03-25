@@ -1,40 +1,59 @@
-import { useState } from "react";
+import React, { useState } from 'react';
 
-function Login({onLogin}) {
-    const [username, setUsername] = useState("");
+function LoginForm( {onCancel}) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-    function handleSubmit (e)  {
-    e.preventDefault();
-    // onLogin(username);
-    fetch("http://localhost:3000/tasks", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username}),
-    }).then((r) => {
-        if (r.ok){
-            r.json().then((user) => onLogin(user));
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+        // Make API call to authenticate user,with the assumption that our api has an endpoint "/api/login"
+       const fetchUsers = async () => {
+        const response = await  fetch('/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+        });
+      
+        // Check if authentication was successful
+        if (response.ok) {
+          // Redirect user to main page
+          window.location.href = '/';
+        } else {
+          // Display error message to user
+          const errorMessage = await response.text();
+          alert(errorMessage);
         }
-    });
-    }
+       };
+       fetchUsers();
+  }
 
-return (
+  return (
     <form onSubmit={handleSubmit}>
-        <h3>Login</h3>
-        <label htmlFor="username">Username: </label>
-        <input 
-        type="text" 
-         id="username"
-          value={username} 
-          onChange={(e) => setUsername(e.target.value)}
-          />
-          <button type="submit">Login</button>
-
-
+      <label>
+        Email:
+        <input
+          type="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+      </label>
+      <br />
+      <label>
+        Password:
+        <input
+          type="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+      </label>
+      <br />
+      <button type="submit">Login</button>
+      <button type='button' onClick={onCancel}>Cancel</button>
     </form>
-);
-
+  );
 }
 
-export default Login;
+export default LoginForm;
