@@ -14,7 +14,7 @@ th {
   background-color: #f2f2f2;
 }
 
-td button {
+td button, .btn, .todo {
   padding: 0.5rem;
   background-color: #dc3545;
   color: white;
@@ -25,6 +25,10 @@ td button {
 
 td button:hover {
   background-color: #c82333;
+ 
+}
+.login{
+  background-color: #c43940;
  
 }
 

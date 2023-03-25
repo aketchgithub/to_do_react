@@ -50,7 +50,7 @@ function LoginForm( {onCancel}) {
         />
       </label>
       <br />
-      <button type="submit">Login</button>
+      <button className='login' type="submit">Login</button>
       <button type='button' onClick={onCancel}>Cancel</button>
     </form>
   );

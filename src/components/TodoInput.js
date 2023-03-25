@@ -33,7 +33,7 @@ function TodoInput() {
           <input type="number" name="priority" placeholder="Priority 1-10" step = "1" value={priority} onChange={(event) => setPriority(event.target.value)}/>
           
         </div>
-       <center> <button className="ui button" type="submit" onClick={handleSubmit}>
+       <center> <button className="todo" type="submit" onClick={handleSubmit}>
           Add A Todo  
         </button></center>
       </form>

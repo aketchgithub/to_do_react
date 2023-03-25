@@ -22,22 +22,7 @@ function App() {
   // };
 
   return (
-    // <Router>
-    //   <div className="App">
-    //     <Header user={users} onLogout={handleLogout} />
-    //     <Routes>
-    //       <Route path="/login">
-    //         <Login onLogin={handleLogin} />
-    //       </Route>
-    //       <Route path="/">
-    //         <h1>
-    //           <center>todos</center>
-    //         </h1>
-    //         <TodosContainer />
-    //       </Route>
-    //     </Routes>
-    //   </div>
-    // </Router>
+  
     <div className="App">
       <div>
       <h1><center>todos</center></h1>
