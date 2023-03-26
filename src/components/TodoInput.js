@@ -12,7 +12,7 @@ function TodoInput() {
 
       const newTodo = {id, title, description, priority, due_date};
 
-      fetch ("http://localhost:3000/tasks", {
+      fetch ("https://to-do-server-umber.vercel.app/tasks", {
         method:'POST',
         headers: {
           'Content-Type':'application/json'

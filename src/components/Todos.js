@@ -5,7 +5,7 @@ function Todos() {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const res = await fetch("http://localhost:3000/tasks");
+      const res = await fetch("https://to-do-server-umber.vercel.app/tasks");
       const tasks = await res.json();
       setTasks(tasks);
     };

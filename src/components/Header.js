@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Header( {user, onLogout }) {
     function handleLogout() {
         onLogout();
-        fetch("http://localhost:3000/tasks", {
+        fetch("https://to-do-server-umber.vercel.app/tasks", {
             method: "DELETE",
         }).then(()=> onLogout()); 
     }
