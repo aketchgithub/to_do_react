@@ -32,6 +32,11 @@ td button:hover {
  
 }
 
+.logout{
+  background-color: #f5f4f4;
+  display: flex;
+  justify-content: right;
+}
 .add-task-form {
   display: flex;
   flex-direction: column;

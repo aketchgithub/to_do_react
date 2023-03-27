@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useNavigate} from "react-router-dom";
 
-export default function Navbar({ setSearchText, setSearchType }) {
-  const [search, setSearch] = useState("");
+export default function Navbar() {
+//   const [search, setSearch] = useState("");
   const [message, setMessage] = useState("");
-  const history = useHistory();
-  const [error, setError] = useState("");
-  
+  const navigate = useNavigate();
+   const [error, setError] = useState("");
+
   const handleLogout = async (e) => {
     if (e) {
       e.preventDefault();
     }
+    // assumming our api has a /logout endpoint
     const res = await fetch(
-      "https://pet-finder-pgl9.onrender.com/user/logout",
+      "https://to-do-server-umber.vercel.app/logout",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -27,27 +28,23 @@ export default function Navbar({ setSearchText, setSearchType }) {
       setError(data.error);
     }
   };
-  
-  
 
   return (
-    <div className="navbr mt-0">
+    <div className="logout">
       <nav className="navbar bg-body-tertiary mt-0">
         <div className="container-fluid">
           <NavLink to="/home"> Home</NavLink>
-          <NavLink to="/add">ADD YOUR PET</NavLink>
-          <NavLink to="/view">VIEW YOUR PETS</NavLink>
           <button
             onClick={(e) => {
               e.preventDefault();
               handleLogout();
-              history.push("/");
+              navigate.push("/");
             }}
           >
             LOGOUT
           </button>
 
-          <div>{message && <p>{message}</p>}</div>
+          {/* <div>{message && <p>{message}</p>}</div>
           <div>{error && <p>{error}</p>}</div>
           <form className="d-flex me-3" role="search">
             <select
@@ -55,9 +52,9 @@ export default function Navbar({ setSearchText, setSearchType }) {
               onClick={(e) => {
                 setSearchType(e.target.value);
               }}
-            >
-              <option>breed</option>
-              <option>name</option>
+            > */}
+              {/* <option>task</option>
+              <option>title</option>
             </select>
             <input
               className="form-control me-2"
@@ -68,19 +65,20 @@ export default function Navbar({ setSearchText, setSearchType }) {
                 setSearch(e.target.value);
               }}
               value={search}
-            />
-            <button
+            /> */}
+            {/* <button
               className="button"
               type="submit"
               onClick={(e) => {
                 e.preventDefault();
                 setSearchText(search.toLowerCase());
-                history.push("/search");
+                navigate.push("/search");
               }}
             >
               Search
-            </button>
-          </form>
+            </button> */}
+            {/* </div> */}
+          {/* </form> */}
         </div>
       </nav>
     </div>

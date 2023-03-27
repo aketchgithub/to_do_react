@@ -1,9 +1,10 @@
  import React, {useState} from "react";
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+ import { BrowserRouter as Router } from "react-router-dom";
 // import Header from "./Header";
 import TodosContainer from "./TodosContainer";
 import LoginForm from "./Login";
 import LoginButton from "./Loginbutton";
+import Navbar from "./Logout";
 
 function App() {
   const [showLoginForm, setShowLoginForm] = useState(false);
@@ -32,6 +33,9 @@ function App() {
         <LoginButton onClick={handleLoginButtonClick}/>
       )}
       </div>
+      <Router>
+        <Navbar/>
+      </Router>
       <div>
         <TodosContainer />
       </div>
