@@ -22,7 +22,7 @@ These instructions should get you a copy of the project up and running in your l
 2. Navigate into the project directory
    cd git@github.com:aketchgithub/to_do_react.git
 
-
+Then;
    cd  to_do_react
 
 3. Install the project dependencies
