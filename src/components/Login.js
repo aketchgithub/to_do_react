@@ -9,7 +9,7 @@ function LoginForm( {onCancel}) {
 
         // Make API call to authenticate user,with the assumption that our api has an endpoint "/api/login"
        const fetchUsers = async () => {
-        const response = await  fetch('/api/login', {
+        const response = await  fetch('https://task-train-api.onrender.com/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

@@ -13,7 +13,7 @@ export default function Navbar() {
     }
     // assumming our api has a /logout endpoint
     const res = await fetch(
-      "https://to-do-server-umber.vercel.app/logout",
+      "https://task-train-api.onrender.com/logout",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

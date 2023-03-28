@@ -12,7 +12,7 @@ function TodoInput() {
 
       const newTodo = {id, title, description, priority, due_date};
 
-      fetch ("https://to-do-server-umber.vercel.app/tasks", {
+      fetch ("https://task-train-api.onrender.com", {
         method:'POST',
         headers: {
           'Content-Type':'application/json'
